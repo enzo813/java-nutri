@@ -22,8 +22,7 @@ var pesoValido = true;
 var alturaValida = true; 
 //define limites de peso e altura
 if(pesoValido && alturaValida){
-console.log ("altura invalida");
-        // acessa e altera o imc
+// acessa e altera o imc
 var tdimc = paciente.querySelector(".info-imc");
 tdimc.textContent = imc.toFixed(2);
  }
@@ -40,11 +39,40 @@ paciente.classList.add("campo-invalido");
 }
 //quando clicar no titulo, apareça uma mensagem
 Enzin
-.addEventListener('click', mostraMensagem);
+addEventListener('click', mostraMensagem);
 
 function mostraMensagem(){
         alert("Este elemento foi clicado");
 }
+//acessa o botao
+var botaoAdicionar = document.querySelector("#adicionar-paciente");
+//executa os codigos ao clicar no botao
+botaoAdicionar.addEventListener('click', function(event){
+        event.preventDefault();
 
+//acessa o formulario
+var formulario = document.querySelector("#form-adiciona");
 
+//captura os valores
+var nome = formulario.nome.value;
+var peso = formulario.peso.value;
+var altura = formulario.altura.value;
+var gordura = formulario.gordura.value;
+
+//crai a tag <tr>
+var pacienteTr = document.createElement("tr");
+//cria a tag <td>
+var nomeTd = document.createElement("td");
+var pesoTd = document.createElement("td");
+var alturaTd = document.createElement("td");
+var gorduraTd = document.createElement("td");
+var imcTd = document.createElement("td");
+
+nomeTd.textContent = nome;
+pesoTd.textContent = peso;
+alturaTd.textContent = altura;
+gorduraTd.textContent = gordura;
+imcTd.textContent = imc;
+
+});
 
